@@ -3,7 +3,6 @@ version: '2'
 services:
   app:
     build: .
-    image: "app:${TAG}"
     command: bundle exec puma -C config/puma.rb
     volumes:
       - /var/www/sample_rails_docker_app
@@ -13,7 +12,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile-nginx
-    image: "web:${TAG}"
     links:
       - app
     ports:
